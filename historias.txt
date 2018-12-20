@@ -1,0 +1,10 @@
+		ticket :cliente, sistema, modulo, tipo, detalles, impacto, nombre, email, telefono, fechaticket,severidad, status
+		historial: ticket, detalles, fechastatus
+		
+-_1_-cuadro adminitrdor
+		-_1.1_-ventana se seguimiento para los tecnicos
+		-_1.2_-ventana del historial
+
+-_2_-cuadro respuesta cliente
+
+-_3_-cuadro respuesta tecnico

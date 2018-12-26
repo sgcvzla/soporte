@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>SGC Consultores - Soporte técnico</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<script type="text/javascript" src="Script.js"></script>
+</head>
+<body>
+	<div align="center">
+		<div class="logo">
+			<img src="https://www.sgc-consultores.com.ve/img/sgc.jpg" alt="SGC Consultores C.A.">
+		</div>
+	</div>
+	<div id="container">
+		<h3 align="center">Abrir un ticket de soporte</h3>
+		<div class="cmps">
+			<span class="etiq">Cliente</span>
+			<input id="cliente" class="campo" type="text" size="50" maxlength="100" />
+		</div>
+		<div class="cmps">
+			<span class="etiq">Sistema</span>
+			<input id="sistema" class="campo" type="text" size="50" maxlength="100" />
+		</div>
+		<div class="cmps">
+			<span class="etiq">Módulo</span>
+			<input id="modulo" class="campo" type="text" size="50" maxlength="100" />
+		</div>
+		<div class="cmps">
+			<span class="etiq">Tipo de solicitud</span>
+			<select id="tipo" class="selec" >
+				<option value="nuevo">Nuevo requerimiento</option>
+				<option value="falla">Reportar falla</option>
+				<option value="mejor">Oportunidad de mejora</option>
+				<option value="comen">Comentario</option>
+			</select>
+		</div>
+		<div class="cmps">
+			<span class="etiq">Detalles:</span>
+			<textarea id="detalles" rows="5" style="width: 62.5%;" maxlength="250"></textarea>
+		</div>
+		<div class="cmps">
+			<span class="etiq">Impacto sobre el negocio (*):</span>
+			<select id="impacto" class="selec">
+				<option value="bajo">No tiene impacto significativo</option>
+				<option value="medio">Impacto medio (no compromete el negocio)</option>
+				<option value="alto">Impacto alto (puede ocasionar perjuicio)</option>
+			</select>
+		</div>
+		<div class="cmps">
+			<p align="justified">(*) Esta respuesta será evaluada por el servico técnico y se asignará la severidad adecuada en función al acuedo de nivel de servicio.</p>
+		</div>	
+		<div class="cmps">
+			<span class="etiq">Nombre de quien reporta:</span>
+			<input id="nombre" class="campo" type="text" size="50" maxlength="100" />
+		</div>
+		<div class="cmps">
+			<span class="etiq">correo electrónico:</span>
+			<input id="email" class="campo" type="email" size="50" maxlength="100" title="Debe introducir un formato de email válido (incluir el @)" />
+		</div>
+		<div class="cmps">
+			<span class="etiq">Teléfono de contacto:</span>
+			<input id="telefono" class="campo" type="text" size="50" maxlength="100" />
+		</div>
+		<div class="btns">
+			<button id="enviar" onclick="fenviar()" style="width: 7em;">Enviar</button>
+			<button id="limpiar" onclick="flimpiar()" style="width: 7em;">Limpiar</button>
+		</div>
+	</div>
+
+</body>
+</html>

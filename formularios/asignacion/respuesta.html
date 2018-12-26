@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>SGC Consultores - Soporte técnico</title>
+	<link rel="stylesheet" href="style.css">
+    <script type="text/javascript" src="script.js"></script>
+</head>
+<body onload="cargar()">
+		<div class="logo">
+			<img src="https://www.sgc-consultores.com.ve/img/sgc.jpg" alt="SGC Consultores C.A.">
+		</div>
+	</div>
+	<div id="container">
+		<h3 align="center">Responder un ticket de soporte</h3>
+		<div class="cmps">
+			<span class="etiq">Ticket</span>
+			<input id="ticket" class="campo" type="text" size="11" maxlength="11" readonly style="background:yellow;text-align:right;width:auto;" />
+		</div>
+		<div class="cmps">
+			<span class="etiq">Fecha de apertura:</span>
+			<input id="fechaticket" class="campo" type="text" size="19" maxlength="19" readonly style="background:yellow;text-align:center;;width:auto;" />
+		</div>
+		<div class="cmps">
+			<span class="etiq">Cliente</span>
+			<input id="cliente" class="campo" type="text" size="50" maxlength="100" readonly style="background:yellow;" />
+		</div>
+		<div class="cmps">
+			<span class="etiq">Sistema</span>
+			<input id="sistema" class="campo" type="text" size="50" maxlength="100" readonly style="background:yellow;" />
+		</div>
+		<div class="cmps">
+			<span class="etiq">Módulo</span>
+			<input id="modulo" class="campo" type="text" size="50" maxlength="100" readonly style="background:yellow;" />
+		</div>
+		<div class="cmps">
+			<span class="etiq">Tipo de solicitud</span>
+			<input id="tipo" class="campo" type="text" size="50" maxlength="100" readonly style="background:yellow;" />
+		</div>
+		<div class="cmps">
+			<span class="etiq">Detalles:</span>
+			<textarea id="detalles" rows="5" style="background:yellow;width: 62.5%;" maxlength="250" readonly></textarea>
+		</div>
+		<div class="cmps">
+			<span class="etiq">Impacto sobre el negocio:</span>
+			<input id="impacto" class="campo" type="text" size="50" maxlength="100" readonly style="background:yellow;" />
+		</div>
+		<div class="cmps">
+			<span class="etiq">Nombre de quien reporta:</span>
+			<input id="nombre" class="campo" type="text" size="50" maxlength="100" readonly style="background:yellow;" />
+		</div>
+		<div class="cmps">
+			<span class="etiq">correo electrónico:</span>
+			<input id="email" class="campo" type="email" size="50" maxlength="100" readonly style="background:yellow;" />
+		</div>
+		<div class="cmps">
+			<span class="etiq">Teléfono de contacto:</span>
+			<input id="telefono" class="campo" type="text" size="50" maxlength="100" readonly style="background:yellow;" />
+		</div>
+		<div class="cmps">
+			<hr width="100%" />
+		</div>
+		<div class="cmps">
+			<span class="etiq">Severidad</span>
+			<select id="severidad" class="selec" >
+				<option value="3">3 - Plazo de respuesta: 5 días hábiles</option>
+				<option value="2">2 - Plazo de respuesta: 3 días hábiles</option>
+				<option value="1">1 - Plazo de respuesta: 1 día hábil</option>
+			</select>
+		</div>
+		<div class="cmps">
+			<span class="etiq">Prioridad:</span>
+			<input id="prioridad" class="campo" type="number" min="1" max="1000" size="4" maxlength="4" style="text-align:right;width:4em;" value="1" placeholder="1" />
+		</div>
+		<div class="cmps">
+			<span class="etiq">Respuesta:</span>
+			<textarea id="respuesta" rows="5" style="width: 62.5%;" maxlength="250"></textarea>
+		</div>
+		<div class="cmps">
+			<span class="etiq">Asignado a:</span>
+			<select id="asignado" class="selec"></select>
+		</div>
+		<div class="cmps">
+			<span class="etiq">Plan de acción:</span>
+			<textarea id="plandeaccion" rows="5" style="width: 62.5%;" maxlength="250"></textarea>
+		</div>
+ 		<div class="btns">
+			<button id="enviar" onclick="fenviar()" style="width: 7em;">Enviar</button>
+			<button id="limpiar" onclick="flimpiar()" style="width: 7em;">Limpiar</button>
+		</div>
+	</div>
+</body>
+</html>

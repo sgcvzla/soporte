@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>admin</title>
+	<link rel="stylesheet" type="text/css" href="css/adminStyle.css">
+	<script type="text/javascript" src="script/admin.js"></script>
+	<script type="text/javascript" src="script/jquery.js"></script>
+
+	<meta charset="utf-8">
+</head>
+<body>
+    <div class="head">
+		<div class="taskBar">
+			<ul >
+				<li><a href="">inicio</a></li>
+				<li><a href="http://localhost/proyectos/pruevas/prueva.html">Tablas</a> </li>
+				<li><a href="">formularios</a></li>
+			</ul>
+		</div>
+    </div>
+    <div class="Left">
+		<div class="conCard" >
+			
+		</div>
+		<div class="conCard" >
+			
+		</div>
+		<div class="conCard" >
+			
+		</div>
+		<div class="">
+			
+		</div>
+	</div>
+	<div class="Rigt">
+
+		<div class="formSeg">
+			<div align="center">
+				<div class="logo">
+					<img src="https://www.sgc-consultores.com.ve/img/sgc.jpg" alt="SGC Consultores C.A.">
+				</div>
+			</div>
+			<!--iframe src="../adminManagement/respuesta.html" style="width: 100%;" onload="resizeIframe(this)"-->
+			<span>id:1</span>
+
+			<div class="cmps">
+				<span class="etiq">Respuesta:</span>
+				<textarea id="respuesta" class="textarea" rows="5" maxlength="250"></textarea>
+				<div>
+					<input type="checkbox" name="vehicle1" value="Bike">cliente<br>
+					<input type="checkbox" name="vehicle2" value="Car">operador<br>
+				</div>
+				
+			</div>
+			<div class="cmps">
+				<span class="etiq">Asignado a:</span>
+				<select id="asignado" class="selec"></select>
+				<div>
+					<input type="button" value="Reasignar">
+				</div>
+			</div>
+			<div class="formButtons">
+				<input type="button" name="" value="Eviar">
+				<input type="button" name="" value="Limpiar">
+			</div>
+		    <span style="padding: 1em;">historias</span>
+			<div class="historial">
+				<div class="message">
+					<div class="etiq">para: cliente</div>
+					<div class="data">este es un mensage mensageado conversacionalmente del operador al cliente</div>
+				 </div>
+				 <div class="message">
+					<div class="etiq">para: operador</div>
+					<div class="data">este es un mensage mensageado conversacionalmente del cliente al operador</div>
+				 </div>
+				 <div class="message">
+					<div class="etiq">para: operador</div>
+					<div class="data">este es un mensage mensageado conversacionalmente del cliente al operador</div>
+				 </div>
+				 <div class="message">
+					<div class="etiq">para: cliente</div>
+					<div class="data">este es un mensage mensageado conversacionalmente del operador al cliente</div>
+				 </div>
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>

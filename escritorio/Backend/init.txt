@@ -1,0 +1,7 @@
+{
+	"card":{
+		"users1":["SELECT * FROM ","tlcomve_usuario","usuario"],
+		"users2":["SELECT * FROM ","tlcomve_usuario","usuario", "tipo='simple'"],
+		"users3":["SELECT * FROM ","tlcomve_usuario","usuario","tipo='Administrador'"]
+	}
+}

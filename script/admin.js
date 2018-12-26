@@ -1,6 +1,7 @@
 
 var element=null;
 var inn=[];
+const dateFormat = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z$/;
 
 
 document.addEventListener('click',function(e){colapseRow(e);}, false);
@@ -33,63 +34,87 @@ function onloadN() {
     xmlhttp = new XMLHttpRequest();
 
     xmlhttp.onreadystatechange = function() {
-      if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
             var response=xmlhttp.responseText;
             var Rjson=JSON.parse(response);
             inn=Rjson; 
-            console.log(inn);
 
-    
 
-    for(var d=0;d<inn[1].length;d++){
-        var data=inn[1][d];
+            var campos=inn[0];
+            var registros=inn[1];
+            var innLength=registros.length;
 
-        var card = document.createElement("DIV");
-        card.classList.add("card");
 
-        var name = document.createElement("DIV");
-        name.classList.add("title");
-        name.appendChild(document.createTextNode(""+inn[0][0]+":"+data[0]));
-        card.appendChild(name);
+            for(var d=0;d<innLength;d++){
+                var fila=registros[d];
 
-        var tiket = document.createElement("DIV");
-        tiket.classList.add("title");
-        tiket.appendChild(document.createTextNode(""+inn[0][1]+":"+data[1]));
-        card.appendChild(tiket);
+                     var card = document.createElement("DIV");
+                     card.classList.add("card");
 
-        var block = document.createElement("DIV");
-        block.classList.add("dataBlock");
-        card.appendChild(block);
+                     var name = document.createElement("DIV");
+                     name.classList.add("title");
+                     name.appendChild(document.createTextNode(""+inn[0][0]+":"+fila[0]));
+                     card.appendChild(name);
 
-        for(var i=2;i<inn[0].length;i++){
-            var f=inn[0][i];
-            var r=data[i];
+                     var tiket = document.createElement("DIV");
+                     tiket.classList.add("title");
+                     tiket.appendChild(document.createTextNode(""+inn[0][1]+":"+fila[1]));
+                     card.appendChild(tiket);
 
-            if(f=="descripcion"){
-                var description = document.createElement("DIV");
-                description.classList.add(f);
-                block.appendChild(description);
+                     var block = document.createElement("DIV");
+                     block.classList.add("dataBlock");
+                     card.appendChild(block);
 
-                var p = document.createElement("p");
-                p.appendChild(document.createTextNode(r));
-                description.appendChild(p);
-            }else{
-                var data = document.createElement("DIV");
-                data.classList.add("data");
-                data.appendChild(document.createTextNode(""+f+":"+r));
-                block.appendChild(data); 
-            }
 
-        }
+                var rLength=fila.length;
+                for(var i=2;i<rLength;i++){
+                    var field=campos[i];
+                    var data=fila[i];
+                     
+                     if(field=="descripcion"){
+                        var description = document.createElement("DIV");
+                        description.classList.add(field);
+                        block.appendChild(description);
+
+                        var p = document.createElement("p");
+                        p.appendChild(document.createTextNode(data));
+                        description.appendChild(p);
+                    }else{
+                        var divdata = document.createElement("DIV");
+                        divdata.classList.add("data");
+                        divdata.appendChild(document.createTextNode(""+field+":"+data));
+                        block.appendChild(divdata); 
+                    }
+                }
         //newdiv.appendChild(document.createTextNode("some text"));
 
         document.getElementsByClassName("container")[0].appendChild(card);
     }
+}
+};
+xmlhttp.open("POST","Backend/adminRequest.php",true);
+xmlhttp.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+xmlhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+var txt=readTextFile(xmlhttp);
+
+}
+
+function readTextFile(xmlhttp){
+    var rawFile = new XMLHttpRequest();
+    var r;
+    var response;
+    rawFile.onreadystatechange = function (){
+        if (rawFile.readyState == 4 && rawFile.status == 200) {
+
+            r=rawFile.responseText;
+            response=JSON.parse(r);
+            console.log(response);
+            xmlhttp.send("Query="+response[0]+"&db="+response[1]+"&table="+response[2]);
         }
-    };
-    xmlhttp.open("POST","adminRequest.php",true);
-    xmlhttp.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
-    xmlhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-    xmlhttp.send("p=gfhgfh");
+    }
+    rawFile.open("GET","Backend/init.php",true);
+    rawFile.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+    rawFile.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    rawFile.send();
 
 }

@@ -1,6 +1,4 @@
 
-var inn=[];
-
 document.addEventListener('click',function(e){colapseRow(e);}, false);
 document.addEventListener("DOMContentLoaded", function(){onloadN();});
 
@@ -37,68 +35,91 @@ function colapseRow(e){
 
 function onloadN() {
     xmlhttp = new XMLHttpRequest();
+    
 
     xmlhttp.onreadystatechange = function() {
-        var cont=document.getElementsByClassName("containerC");
+        
 
-        for (var amount = 0; amount <cont.length; amount++) {
-            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-                var response=xmlhttp.responseText;
-                var Rjson=JSON.parse(response);
-                inn=Rjson; 
+        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+            var left=document.getElementsByClassName("Left");
+            var amount=left.length;
 
+            var response=xmlhttp.responseText;
+            var jsonParsed=JSON.parse(response);
+            //var jsonParsedKeys=Object.keys(jsonParsed);
 
-                var campos=inn[0];
-                var registros=inn[1];
-                var innLength=registros.length;
+            for(var aa=0;aa<amount;aa++){
+                var cont=jsonParsed["card"];
 
-
-                for(var d=0;d<innLength;d++){
-                    var fila=registros[d];
-
-                         var card = document.createElement("DIV");
-                         card.classList.add("card");
-
-                         var name = document.createElement("DIV");
-                         name.classList.add("title");
-                         name.appendChild(document.createTextNode(""+inn[0][0]+":"+fila[0]));
-                         card.appendChild(name);
-
-                         var tiket = document.createElement("DIV");
-                         tiket.classList.add("title");
-
-                         tiket.appendChild(document.createTextNode(""+inn[0][1]+":"+fila[1]));
-                         card.appendChild(tiket);
-
-                         var block = document.createElement("DIV");
-                         block.classList.add("dataBlock");
-                         card.appendChild(block);
+                var contkeys=Object.keys(cont);
 
 
-                    var rLength=fila.length;
-                    for(var i=2;i<rLength;i++){
-                        var field=campos[i];
-                        var data=fila[i];
-                         
-                         if(field=="descripcion"){
-                            var description = document.createElement("DIV");
-                            description.classList.add(field);
-                            block.appendChild(description);
+                for(var b=0;b<contkeys.length;b++){
+                    var dataname=contkeys[b];
+                    var data=cont[dataname];
 
-                            var p = document.createElement("p");
-                            p.appendChild(document.createTextNode(data));
-                            description.appendChild(p);
-                        }else{
-                            var divdata = document.createElement("DIV");
-                            divdata.classList.add("data");
-                            divdata.appendChild(document.createTextNode(""+field+":"+data));
-                            block.appendChild(divdata); 
+                    var campos=data[0];
+                    var registros=data[1];
+                    var dataLength=registros.length;
+                    console.log(left[0]);
+
+                    var contenedor = document.createElement("DIV");
+                    contenedor.classList.add("containerC");
+
+                    for(var c=0;c<dataLength;c++){
+                        var fila=registros[c];
+
+                        var card = document.createElement("DIV");
+                        card.classList.add("card");
+
+                        var name = document.createElement("DIV");
+                        name.classList.add("title");
+                        name.appendChild(document.createTextNode(""+campos[0]+":"+fila[0]));
+                        card.appendChild(name);
+
+                        var tiket = document.createElement("DIV");
+                        tiket.classList.add("title");
+
+                        tiket.appendChild(document.createTextNode(""+campos[1]+":"+fila[1]));
+                        card.appendChild(tiket);
+
+                        var block = document.createElement("DIV");
+                        block.classList.add("dataBlock");
+                        card.appendChild(block);
+
+
+                        var rLength=fila.length;
+                        for(var d=2;d<rLength;d++){
+                            var field=campos[d];
+                            var data=fila[d];
+
+                            if(field=="descripcion"){
+                                var description = document.createElement("DIV");
+                                description.classList.add(field);
+                                block.appendChild(description);
+
+                                var p = document.createElement("p");
+                                p.appendChild(document.createTextNode(data));
+                                description.appendChild(p);
+                            }else{
+                                var divdata = document.createElement("DIV");
+                                divdata.classList.add("data");
+                                divdata.appendChild(document.createTextNode(""+field+":"+data));
+                                block.appendChild(divdata); 
+                            }
                         }
+                        contenedor.appendChild(card);
+
                     }
-                    cont[amount].appendChild(card);
+                    left[aa].appendChild(contenedor);
+                    
                 }
             }
+
+            
+
         }
+
     };
     xmlhttp.open("POST","Backend/adminRequest.php",true);
     xmlhttp.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
@@ -115,7 +136,7 @@ function readTextFile(xmlhttp){
 
             r=rawFile.responseText;
             response=JSON.parse(r);
-            xmlhttp.send("Query="+response[0]+"&db="+response[1]+"&table="+response[2]);
+            xmlhttp.send("cjson="+r);
         }
     }
     rawFile.open("GET","Backend/init.php",true);

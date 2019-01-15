@@ -1,7 +1,10 @@
 {
 	"card":{
 		"users1":["SELECT * FROM ","tlcomve_usuario","usuario"],
-		"users2":["SELECT * FROM ","tlcomve_usuario","usuario", "tipo='simple'"],
-		"users3":["SELECT * FROM ","tlcomve_usuario","usuario","tipo='Administrador'"]
+		"users2":["SELECT * FROM ","tlcomve_usuario","usuario", "tipo=\"Simple\""],
+		"users3":["SELECT * FROM ","tlcomve_usuario","usuario","tipo=\"Administrador\""]
+	},
+	"historia":{
+		"historia1":["SELECT * from","tlcomve_usuario","monitor"]
 	}
 }

@@ -1,7 +1,10 @@
 {
 	"card":{
-		"users1":["SELECT * FROM ","tlcomve_usuario","usuario"],
-		"users2":["SELECT * FROM ","tlcomve_usuario","usuario", "tipo='simple'"],
-		"users3":["SELECT * FROM ","tlcomve_usuario","usuario","tipo='Administrador'"]
+		"users1":["SELECT usuario ,  referencia ,  clave ,  pregunta ,  respuesta ,  nombre ,  apellido ,  direccion ,  fechaNacimiento ,  BlokMesage ,  desbloq ,  datos ,  acumulado ,  operador ,  centro  FROM","tlcomve_usuario","usuario"],
+		"users2":["SELECT usuario ,  referencia ,  clave ,  pregunta ,  respuesta ,  nombre ,  apellido ,  direccion ,  fechaNacimiento ,  BlokMesage ,  desbloq ,  datos ,  acumulado ,  operador ,  centro  FROM","tlcomve_usuario","usuario", "tipo=\"Simple\""],
+		"users3":["SELECT usuario ,  referencia ,  clave ,  pregunta ,  respuesta ,  nombre ,  apellido ,  direccion ,  fechaNacimiento ,  BlokMesage ,  desbloq ,  datos ,  acumulado ,  operador ,  centro  FROM","tlcomve_usuario","usuario","tipo=\"Administrador\""]
+	},
+	"historia":{
+		"historia1":["SELECT usuario , TiempoAcum  FROM","tlcomve_usuario","monitor","usuario="]
 	}
 }

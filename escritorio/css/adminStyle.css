@@ -158,6 +158,12 @@ span{
 	width: 100%;
 }
 
+.key{
+	border-radius: 1em;
+	/*background: #971;*/
+	width: 100%;
+}
+
 .dataBlock{
 	pointer-events: none;
 	display: none;

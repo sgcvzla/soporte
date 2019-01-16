@@ -113,7 +113,11 @@ function loadCards() {
                     left[aa].appendChild(contenedor);
                 }
             }
+
+            
+
         }
+
     };
     xmlhttp.open("POST","Backend/adminRequest.php",true);
     xmlhttp.setRequestHeader('X-Requested-With', 'XMLHttpRequest');

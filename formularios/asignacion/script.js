@@ -36,7 +36,7 @@ function cargar() {
 			}
 		}
 	};
-	xmlhttp.open("GET", "buscaticket.php?ticket="+ticket, true);
+	xmlhttp.open("GET", "../buscaticket.php?ticket="+ticket, true);
 	xmlhttp.send();
 }
 
@@ -62,7 +62,7 @@ function fenviar() {
 			}
 		}
 	};
-	xmlhttp.open("POST", "registrarespuesta.php", true);
+	xmlhttp.open("POST", "../registrarespuesta.php", true);
 	xmlhttp.send(datos);
 }
 

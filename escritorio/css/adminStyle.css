@@ -1,6 +1,6 @@
 :root {
   --cardcolor:#888 ;
-  --bgColor:#333 ;
+  --bgColor:#fff;
   --container:#333 ;
 
 }
@@ -56,10 +56,21 @@ span{
 
 .formSeg {
 	padding: 1em;
-	margin: auto;
+	margin: 1em;
 	width: 70%;
 	min-width: 200px;
-	background: lightgray;
+	background: #ccc;
+	display: none;
+	flex-direction: column;
+	flex-wrap: wrap;
+}
+
+.formLog {
+	padding: 1em;
+	margin: 1em;
+	width: 70%;
+	min-width: 200px;
+	background: #ccc;
 	display: flex;
 	flex-direction: column;
 	flex-wrap: wrap;
@@ -70,9 +81,16 @@ span{
 	display: flex;
 	flex-direction: row;
 }
+.cmpsForm{
+	padding: 0.5em 0 0 0;
+	display:flex;
+	flex-direction: row;
+
+}
 .etiq {
 	width: 20%;
-	height: 20px;
+	text-align: center;
+	font-size: 1.3em;
 }
 .campo {
 	height: 20px;
@@ -86,16 +104,12 @@ span{
 	width: 60%;
 }
 
-/*historial*/
-.historial{
-	width: 100%;
-	border:#555 5px solid; 
+.texForm{
+	width: 60%;
+	height: 2em;
+	font-size: 1.1em;
 }
-.message{
-	background: #fff;
-	border-bottom: #555 5px solid;
 
-}
 
 .formButtons{
 	padding: 0.8em;
@@ -104,6 +118,25 @@ span{
     align-items: center;
     justify-content: center;
 }
+
+/***********************historial*******************************************/
+.historial{
+	width: 100%;
+	border:#555 5px solid; 
+}
+.field{
+}
+.dataH{
+	font-size: 1em;
+	text-align: left;
+	word-wrap:break-word;
+}
+.message{
+	background: #fff;
+	border-bottom: #555 5px solid;
+	width: 100%;
+}
+
 
 /*****************************cabecera*************************************/
 .head{

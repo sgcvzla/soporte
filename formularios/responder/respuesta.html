@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>SGC Consultores - Soporte técnico</title>
+	<link rel="stylesheet" href="style.css">
+    <script type="text/javascript" src="script.js"></script>
+</head>
+<body>
+		<div class="logo">
+			<img src="https://www.sgc-consultores.com.ve/img/sgc.jpg" alt="SGC Consultores C.A.">
+		</div>
+	</div>
+	<div id="container">
+		<h3 align="center">Responder un ticket de soporte</h3>
+		<div class="cmps">
+			<span class="etiq">Ticket</span>
+			<input id="ticket" class="campo" type="text" size="11" maxlength="11" readonly style="background:yellow;text-align:right;width:auto;" />
+		</div>
+		<div class="cmps">
+			<span class="etiq">Respuesta:</span>
+			<textarea id="respuesta" rows="5" style="width: 62.5%;" maxlength="250"></textarea>
+		</div>
+ 		<div class="btns">
+			<button id="enviar" onclick="validateFormOnSubmit()" style="width: 7em;">Enviar</button>
+			<button id="limpiar" onclick="flimpiar()" style="width: 7em;">Limpiar</button>
+		</div>
+	</div>
+</body>
+</html>

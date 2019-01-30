@@ -1,7 +1,8 @@
 <?php 
 // session_start();
 header('Content-Type: application/json');
-include_once("../config/conexion.php");
+//include_once("../config/conexion.php");
+$link = mysqli_connect("127.0.0.1:3307", "root", "REny0408", "sgcconsu_sgcvzla");
 
 $ticket = $_GET["ticket"];
 

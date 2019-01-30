@@ -4,8 +4,6 @@
 	<title>admin</title>
 	<link rel="stylesheet" type="text/css" href="css/adminStyle.css">
 	<script type="text/javascript" src="script/admin.js"></script>
-	<script type="text/javascript" src="script/jquery.js"></script>
-
 	<meta charset="utf-8">
 </head>
 <body>
@@ -29,35 +27,70 @@
 					<img src="https://www.sgc-consultores.com.ve/img/sgc.jpg" alt="SGC Consultores C.A.">
 				</div>
 			</div>
-			<!--iframe src="../adminManagement/respuesta.html" style="width: 100%;" onload="resizeIframe(this)"-->
-			<span>id:1</span>
+			<span class="nameform">id:1</span>
 
-			<div class="cmps">
+			<form class="cmpsForm" id="cmpsForm" method="POST">
 				<span class="etiq">Respuesta:</span>
-				<textarea id="respuesta" class="textarea" rows="5" maxlength="250"></textarea>
+				<textarea name="respuesta" class="textarea" rows="5" maxlength="250"></textarea>
 				<div>
-					<input type="checkbox" name="vehicle1" value="Bike">cliente<br>
-					<input type="checkbox" name="vehicle2" value="Car">operador<br>
-				</div>
-				
+					<input type="checkbox" name="check_list[]" value="cliente">cliente<br>
+					<input type="checkbox" name="check_list[]" value="operador">operador<br>
+				</div>	
+			</form>
+			<div class="formButtons">
+				<input type="button" name="" value="Eviar" form="cmps" onclick="validateFormOnSubmit()">
+				<input type="button" name="" value="Limpiar">
 			</div>
 			<div class="cmps">
 				<span class="etiq">Asignado a:</span>
 				<select id="asignado" class="selec"></select>
 				<div>
-					<input type="button" value="Reasignar">
+					<input type="button" value="Reasignar" onclick="sendOperador()">
 				</div>
-			</div>
-			<div class="formButtons">
-				<input type="button" name="" value="Eviar">
-				<input type="button" name="" value="Limpiar">
 			</div>
 		    <span style="padding: 1em;">historias</span>
 			<div class="historial">
 			
 			</div>
 		</div>
+		<div class="formSeg" id="formSeg">
+		<h3 align="center">Responder un ticket de soporte</h3>
+		<div class="cmps">
+			<span class="etiq">Ticket</span>
+			<input id="ticket" class="campo" type="text" size="11" maxlength="11" readonly style="background:yellow;text-align:right;width:auto;" />
+		</div>
+		
+		<div class="cmps">
+			<span class="etiq">Severidad</span>
+			<select id="severidad" class="Severidad" >
+				<option value="3">3 - Plazo de respuesta: 5 días hábiles</option>
+				<option value="2">2 - Plazo de respuesta: 3 días hábiles</option>
+				<option value="1">1 - Plazo de respuesta: 1 día hábil</option>
+			</select>
+		</div>
+		<div class="cmps">
+			<span class="etiq">Prioridad:</span>
+			<input id="prioridad" class="campo" type="number" min="1" max="1000" size="4" maxlength="4" style="text-align:right;width:4em;" value="1" placeholder="1" />
+		</div>
+		<div class="cmps">
+			<span class="etiq">Respuesta:</span>
+			<textarea id="respuesta" rows="5" style="width: 62.5%;" maxlength="250"></textarea>
+		</div>
+		<div class="cmps">
+			<span class="etiq">Asignado a:</span>
+			<select id="asignado" class="selec"></select>
+		</div>
+		<div class="cmps">
+			<span class="etiq">Plan de acción:</span>
+			<textarea id="plandeaccion" rows="5" style="width: 62.5%;" maxlength="250"></textarea>
+		</div>
+ 		<div class="btns">
+			<button id="enviar" onclick="fenviar()" style="width: 7em;">Enviar</button>
+			<button id="limpiar" onclick="flimpiar()" style="width: 7em;">Limpiar</button>
+		</div>
+	</div>
 	</div>
 
 </body>
 </html>
+

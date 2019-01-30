@@ -43,8 +43,7 @@
 					$queryAsempler=$Query." ".$table;
 				}
 			}
-			
-			
+
 			$link = Conexion::obtenerInstancia("127.0.0.1:3307","root","REny0408",$db);
 			$resultset=$link->prepare($queryAsempler);
 			$valor=$resultset->execute() or die (print_r($db->errorInfo(), true));
@@ -74,8 +73,11 @@
 
 				for($j=0;$j<=$RowSize-1;$j++){
 					$collBuff=$rowsBuf[$j];
-
-					array_push($rowArr,$collBuff);
+					if($collBuff===null){
+						array_push($rowArr,"nulo");
+					}else{
+						array_push($rowArr,$collBuff);
+					}
 
 				}
 				array_push($datos,$rowArr);

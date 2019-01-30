@@ -1,8 +1,7 @@
 <?php 
 // session_start();
 header('Content-Type: application/json');
-include_once("../config/conexion.php");
-
+$link = mysqli_connect("127.0.0.1:3307", "root", "REny0408", "sgcconsu_sgcvzla");
 $imp = $_POST["impacto"];
 $tip = $_POST["tipo"];
 $destip = '';
@@ -94,7 +93,7 @@ if ($row = mysqli_fetch_array($result)) {
 		mail($correo,$asunto,$mensaje,$cabeceras);
 	}
 
-	$query = "INSERT INTO historial (ticket, detalles, fechastatus) VALUES (".$ticket.",'Apertura: ".$_POST["detalles"]."','".$fecha."')";
+	$query = "INSERT INTO historial (ticket, detalles, remitente, destinatario, fechastatus) VALUES (".$ticket.",'Apertura: ".$_POST["detalles"]."',\"cliente\",\"cliente-operador\" ,'".$fecha."')";
 	$result = mysqli_query($link,$query);
 
 	$respuesta = '{"exito":"SI","ticket":'.$row["ticket"].'}';

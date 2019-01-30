@@ -1,10 +1,22 @@
 {
 	"card":{
-		"users1":["SELECT usuario ,  referencia ,  clave ,  pregunta ,  respuesta ,  nombre ,  apellido ,  direccion ,  fechaNacimiento ,  BlokMesage ,  desbloq ,  datos ,  acumulado ,  operador ,  centro  FROM","tlcomve_usuario","usuario"],
-		"users2":["SELECT usuario ,  referencia ,  clave ,  pregunta ,  respuesta ,  nombre ,  apellido ,  direccion ,  fechaNacimiento ,  BlokMesage ,  desbloq ,  datos ,  acumulado ,  operador ,  centro  FROM","tlcomve_usuario","usuario", "tipo=\"Simple\""],
-		"users3":["SELECT usuario ,  referencia ,  clave ,  pregunta ,  respuesta ,  nombre ,  apellido ,  direccion ,  fechaNacimiento ,  BlokMesage ,  desbloq ,  datos ,  acumulado ,  operador ,  centro  FROM","tlcomve_usuario","usuario","tipo=\"Administrador\""]
+			"users1":["SELECT  ticket ,  cliente ,  sistema ,  modulo ,  tipo ,  detalles ,  impacto ,  nombre ,  email ,  telefono ,  fechaticket ,  fechastatus ,  fechacierre ,  severidad ,  prioridad ,  asignado ,  plandeaccion ,  status  FROM",
+			"sgcconsu_sgcvzla",
+			"tickets",
+			"severidad =3"
+		],
+			"users2":["SELECT  ticket ,  cliente ,  sistema ,  modulo ,  tipo ,  detalles ,  impacto ,  nombre ,  email ,  telefono ,  fechaticket ,  fechastatus ,  fechacierre ,  severidad ,  prioridad ,  asignado ,  plandeaccion ,  status  FROM",
+			"sgcconsu_sgcvzla",
+			"tickets",
+			 "severidad =1"
+		 ],
+			"users3":["SELECT  ticket ,  cliente ,  sistema ,  modulo ,  tipo ,  detalles ,  impacto ,  nombre ,  email ,  telefono ,  fechaticket ,  fechastatus ,  fechacierre ,  severidad ,  prioridad ,  asignado ,  plandeaccion ,  status  FROM",
+			"sgcconsu_sgcvzla",
+			"tickets",
+			"severidad =2"
+		]
 	},
 	"historia":{
-		"historia1":["SELECT usuario , TiempoAcum  FROM","tlcomve_usuario","monitor","usuario="]
+		"historia1":["SELECT  detalles , remitente , destinatario  FROM","sgcconsu_sgcvzla","historial","ticket="]
 	}
 }

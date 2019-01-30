@@ -1,7 +1,8 @@
 <?php 
 // session_start();
 header('Content-Type: application/json');
-include_once("../config/conexion.php");
+//include_once("../config/conexion.php");
+$link = mysqli_connect("127.0.0.1:3307", "root", "REny0408", "sgcconsu_sgcvzla");
 
 $fechastatus = date('Y-m-d H:i:s');
 $respuesta = '';
@@ -64,6 +65,7 @@ if ($row = mysqli_fetch_array($result)) {
 	// } else {
 	// 	$mensaje .= '<a href="https://www.sgc-consultores.com.ve/soporte/respuesta.html?ticket='.$ticket.'">Responder al ticket</a><br/><br/>';
 	// }
+	
 
 	$asunto = utf8_decode("Asignación de ticket de soporte No.: ".$ticket);
 	$cabeceras = 'Content-type: text/html;';
@@ -100,7 +102,7 @@ if ($row = mysqli_fetch_array($result)) {
 		mail($row["email"],$asunto,$mensaje,$cabeceras);
 	// }
 //////////////////////////////////////////////
-	$query = "INSERT INTO historial (ticket, detalles, fechastatus) VALUES (".$ticket.",'Respuesta: ".$row["detalles"]."','".$fecha."')";
+	$query = "INSERT INTO historial (ticket, detalles, remitente, destinatario, fechastatus)  VALUES (".$ticket.",'Respuesta: ".$row["detalles"]."',\"cliente\",\"cliente-operador\" ,'".$fecha."')";
 	$result = mysqli_query($link,$query);
 
 	$respuesta = '{"exito":"SI","ticket":'.$row["ticket"].'}';

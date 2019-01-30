@@ -24,7 +24,7 @@ function fenviar() {
 			}
 		}
 	};
-	xmlhttp.open("POST", "registraticket.php", true);
+	xmlhttp.open("POST", "../registraticket.php", true);
 	xmlhttp.send(datos);
 }
 
